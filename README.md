@@ -18,6 +18,28 @@ To identify improvement areas in the loan approval pipeline and understand which
 
 ---
 
+## 🧩 Data Model Overview
+
+This project uses a star schema to structure loan application data efficiently for slicing and analysis.
+
+![Data Model](Data_Model_Overview.png)
+
+**Fact Table:**
+- `LoanApplications`: Stores loan-related metrics and applicant attributes like income, credit history, risk flag, and loan term.
+
+**Dimension Tables:**
+- `Dim_Education`, `Dim_Gender`, `Dim_SelfEmployed`, `Dim_Dependents`
+- `Dim_LoanStatus`, `Dim_PropertyArea`, `Dim_CreditHistory`
+
+Each dimension is connected to the fact table via a one-to-many relationship using surrogate keys (e.g., `Education`, `Gender`, etc.).
+
+**Benefits:**
+- Clean separation of categorical dimensions and measures
+- Faster performance in Power BI visuals
+- Easier DAX measure creation and filtering
+
+---
+
 ## 🔍 Key Insights
 
 - **Approval Rate:** 68.7% of applicants were approved.
